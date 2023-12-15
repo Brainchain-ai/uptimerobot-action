@@ -1,16 +1,16 @@
 #!/bin/sh
 
 # Inputs
-API_KEY="${API_KEY}"
-MONITOR_ID="${MONITOR_ID}"
-ACTION="${ACTION}"
+API_KEY="${INPUT_API_KEY}"
+MONITOR_ID="${INPUT_MONITOR_ID}"
+ACTION="${INPUT_ACTION}"
 
 # UptimeRobot API URL
 API_URL="https://api.uptimerobot.com/v2/editMonitor"
 
 # Construct JSON payload
 JSON_PAYLOAD=$(
-    cat <<EOF
+  cat <<EOF
 {
   "api_key": "${API_KEY}",
   "id": "${MONITOR_ID}",
@@ -23,6 +23,6 @@ echo $JSON_PAYLOAD
 
 # Pause or resume UptimeRobot monitor
 curl --request POST \
-    --url "${API_URL}" \
-    --header "Content-Type: application/json" \
-    --data-raw "$JSON_PAYLOAD"
+  --url "${API_URL}" \
+  --header "Content-Type: application/json" \
+  --data-raw "$JSON_PAYLOAD"
