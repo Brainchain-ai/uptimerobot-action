@@ -1,0 +1,15 @@
+name: "Pause/Resume UptimeRobot Monitor"
+description: "Pause or resume an UptimeRobot monitor during deployment"
+inputs:
+  api_key:
+    description: "UptimeRobot API key"
+    required: true
+  monitor_id:
+    description: "UptimeRobot monitor ID"
+    required: true
+  action:
+    description: "Action to perform (0 for pause, 1 for resume)"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
